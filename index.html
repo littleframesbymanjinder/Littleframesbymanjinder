@@ -139,7 +139,12 @@ footer{padding:18px 0 26px;text-align:center;color:#7c6b61;font-size:.85rem}
 <option>Home Session</option>
 </select>
 
-<button class="btn" type="submit">Send Booking Request</button>
+<label>Preferred Date</label>
+<input id="sessionDate" type="date" required>
+
+<label>Preferred Time</label>
+<input id="sessionTime" type="time" required>
+  <button class="btn" type="submit">Send Booking Request</button>
 </form>
 </div>
 </div>
@@ -151,15 +156,18 @@ function sendBooking(){
   const age=document.getElementById('babyAge').value;
   const contact=document.getElementById('bookContact').value;
   const session=document.getElementById('sessionType').value;
+  const date=document.getElementById('sessionDate').value;
+  const time=document.getElementById('sessionTime').value;
+  const message = `Hi Little Frames By Manjinder,
 
-  const message=`Hi Little Frames By Manjinder,
 I would like to book a newborn session.
 
 Name: ${name}
 Baby Age: ${age}
 Contact: ${contact}
-Session: ${session}`;
-
+Session: ${session}
+Preferred Date: ${date}
+Preferred Time: ${time}`;
   window.open('https://wa.me/16476497506?text='+encodeURIComponent(message),'_blank');
 }
 </script>
