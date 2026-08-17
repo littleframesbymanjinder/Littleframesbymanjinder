@@ -23,12 +23,51 @@ section{padding:24px 0}.title{display:flex;align-items:end;justify-content:space
 footer{padding:18px 0 26px;text-align:center;color:#7c6b61;font-size:.85rem}
 @media(max-width:850px){.nav a:not(.btn){display:none}.hero-grid{grid-template-columns:1fr}.hero-copy,.hero-img{min-height:auto}.hero-copy{padding:27px}.hero-img{height:420px}.packages{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}.photo:nth-child(1),.photo:nth-child(6){grid-column:span 2}.contact{grid-template-columns:1fr}}
 @media(max-width:520px){.brand img{height:44px}.wrap{width:min(96%,1180px)}nav{height:58px}.brand{font-size:.92rem}.hero{padding-top:10px}section{padding:16px 0}.gallery{gap:5px}.photo{border-radius:11px}.hero-img{height:330px}.card{padding:20px}}
-</style>
+#booking{padding:40px 0}
+#booking .contact{
+  background:#efe9dc;
+  border-radius:24px;
+  padding:32px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+  max-width:760px;
+  margin:0 auto;
+}
+#booking form{
+  display:grid;
+  gap:14px;
+}
+#booking label{
+  font-weight:700;
+  font-size:16px;
+}
+#booking input,
+#booking select{
+  width:100%;
+  padding:15px 16px;
+  border:1px solid #d9cfbf;
+  border-radius:12px;
+  background:#fff;
+  font-size:16px;
+  font-family:inherit;
+}
+#booking input:focus,
+#booking select:focus{
+  outline:none;
+  border-color:#624a3b;
+}
+#booking button{
+  margin-top:8px;
+  width:100%;
+  padding:15px 20px;
+  font-size:16px;
+}</style>
 </head>
 <body>
 <header><div class="wrap"><nav>
 <a class="brand" href="#"><img src="littleframes-logo.png" alt="Little Frames By Manjinder Newborn Photography"></a>
-<div class="nav"><a href="#packages">Packages</a><a href="#gallery">Gallery</a><a class="btn" href="https://wa.me/16476497506?text=Hi%20littleframesbymanjinder%2C%20I%20want%20to%20book%20a%20newborn%20photoshoot." target="_blank">Book Now</a></div>
+<div class="nav"><a href="#packages">Packages</a><a href="#gallery">Gallery</a><a class="btn" href="#booking">Book Now</a></div>
 </nav></div></header>
 
 <main>
@@ -71,10 +110,59 @@ footer{padding:18px 0 26px;text-align:center;color:#7c6b61;font-size:.85rem}
 <div class="photo"><img loading="lazy" src="gallery-18.jpeg" alt="Newborn photography portfolio"></div>
 <div class="photo"><img loading="lazy" src="gallery-19.jpeg" alt="Newborn photography portfolio"></div>
 </div></div></section>
-<section><div class="wrap"><div class="contact">
+
 <div><div class="eyebrow">Bookings</div><h2>Ready to reserve your session?</h2><p>Message littleframesbymanjinder directly for availability and theme planning.</p></div>
 <div class="contact-actions"><a class="btn" href="https://wa.me/16476497506?text=Hi%20littleframesbymanjinder%2C%20I%20would%20like%20to%20book%20a%20newborn%20photoshoot." target="_blank">WhatsApp 647-649-7506</a><a class="btn" href="https://www.instagram.com/littleframesbymanjinder/" target="_blank">Instagram @littleframesbymanjinder</a><a class="btn" href="tel:+16476497506">Call 647-649-7506</a></div>
-</div></div></section>
+<section id="booking">
+<div class="wrap">
+<div class="contact">
+<div>
+<div class="eyebrow">BOOK YOUR SESSION</div>
+<h2>Newborn Session Inquiry</h2>
+<p>Fill out the details below and send your request directly through WhatsApp.</p>
+</div>
+
+<form onsubmit="sendBooking(); return false;">
+<label>Name</label>
+<input id="bookName" type="text" required>
+
+<label>How old is baby?</label>
+<input id="babyAge" type="text" placeholder="Example: 12 days old" required>
+
+<label>Contact Number</label>
+<input id="bookContact" type="tel" required>
+
+<label>Studio or Home Session</label>
+<select id="sessionType" required>
+<option value="">Select a session</option>
+<option>Studio Session</option>
+<option>Home Session</option>
+</select>
+
+<button class="btn" type="submit">Send Booking Request</button>
+</form>
+</div>
+</div>
+</section>
+
+<script>
+function sendBooking(){
+  const name=document.getElementById('bookName').value;
+  const age=document.getElementById('babyAge').value;
+  const contact=document.getElementById('bookContact').value;
+  const session=document.getElementById('sessionType').value;
+
+  const message=`Hi Little Frames By Manjinder,
+I would like to book a newborn session.
+
+Name: ${name}
+Baby Age: ${age}
+Contact: ${contact}
+Session: ${session}`;
+
+  window.open('https://wa.me/16476497506?text='+encodeURIComponent(message),'_blank');
+}
+</script>
 </main>
 
 <footer><div class="wrap"><img src="littleframes-logo.png" alt="Little Frames By Manjinder" style="width:180px;height:auto;margin:0 auto 8px">© 2026 littleframesbymanjinder • Newborn Photography • Brampton</div></footer>
